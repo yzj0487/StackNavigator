@@ -3,14 +3,14 @@ import {View, Text} from 'react-native'
 
 export default class World extends Component {
 
+    //设置导航栏标题
     static navigationOptions = {
         title: 'World'
     };
 
     render() {
-        const {navigate} = this.props.navigation;
         return <View>
-            <Text onPress={() => navigate('Hello')}>Hello World</Text>
+            <Text>Hello World</Text>
         </View>
     }
 }
