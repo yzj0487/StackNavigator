@@ -1,10 +1,29 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native'
 import {} from 'react-navigation'
+import PropTypes from 'prop-types';
+
+class TestProps extends Component {
+
+    //æŒ‡å®šå±æ€§çš„ç±»å‹
+    static propTypes = {name: PropTypes.string, age: PropTypes.string}
+
+    //ç»™å±æ€§è®¾ç½®é»˜è®¤å€¼
+    static defaultProps = {
+        name: 'Solide'
+    }
+
+    render() {
+        return (
+            <Text>name: {this.props.name} age: {this.props.age}</Text>
+        );
+    }
+}
+
 
 export default class Hello extends Component {
 
-    //ÉèÖÃµ¼º½À¸±êÌâ
+    //è®¾ç½®å¯¼èˆªæ æ ‡é¢˜
     static navigationOptions = {
         title: 'Hello'
     };
@@ -13,8 +32,13 @@ export default class Hello extends Component {
         const {navigate} = this.props.navigation;
 
         return <View>
-            //ÉèÖÃµã»÷ÊÂ¼ş
-            <Text onPress={() => navigate('World')}>Hello Hello</Text>
+
+            <TestProps age='30'/>
+
+            <TestProps name='DouBi'
+                       age='31'/>
+
+            <Text onPress={() => navigate('World', {name: 'DouBi', age: 31})}>Hello Hello</Text>
         </View>
     }
 }
